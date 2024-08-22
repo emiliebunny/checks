@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "checksCLI",
     dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-testing.git", branch: "main"),
         .package(url: "https://github.com/apple/example-package-figlet", branch: "main"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
@@ -19,5 +20,12 @@ let package = Package(
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
             path: "Sources"),
+        .testTarget(
+            name: "checksCLITests",
+            dependencies: [
+                "checksCLI",
+                .product(name: "Testing", package: "swift-testing"),
+            ]
+        )
     ]
 )
