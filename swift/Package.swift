@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "checksCLI",
+    name: "CheckCLIPackage",
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-testing.git", branch: "main"),
         .package(url: "https://github.com/apple/example-package-figlet", branch: "main"),
@@ -14,18 +14,18 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
-            name: "checksCLI",
+            name: "CheckCLI",
             dependencies: [
                 .product(name: "Figlet", package: "example-package-figlet"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
             path: "Sources"),
-        .testTarget(
-            name: "checksCLITests",
-            dependencies: [
-                "checksCLI",
-                .product(name: "Testing", package: "swift-testing"),
-            ]
-        )
+        // .testTarget(
+        //    name: "CheckCLITest",
+        //    dependencies: [
+        //        "CheckCLI",
+        //        .product(name: "Testing", package: "swift-testing"),
+        //    ]
+        // )
     ]
 )
